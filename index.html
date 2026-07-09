@@ -103,8 +103,10 @@
   .t-actor { color:#efce85; background:rgba(230,198,128,.12); border-color:rgba(230,198,128,.45); }
   .t-cve { color:#ff8b98; background:rgba(255,77,99,.15); border-color:rgba(255,77,99,.5); }
   .notag { color:var(--dim); font-family:var(--mono); font-size:11px; }
-  .dl { margin-top:auto; padding-top:14px; color:var(--cy); font-family:var(--mono);
-    font-size:12.5px; letter-spacing:1px; }
+  .actions { margin-top:auto; padding-top:14px; display:flex; flex-direction:column; gap:8px; }
+  .dl { color:var(--cy); font-family:var(--mono); font-size:12.5px; letter-spacing:1px; }
+  .dl.det { color:var(--cy); }
+  .dl.det:hover { text-shadow:0 0 10px var(--cy-dim); }
   .dl .pdf { color:var(--dim); }
   .card:hover .dl { text-shadow:0 0 10px var(--cy-dim); }
   .noresults { color:var(--dim); font-family:var(--mono); padding:34px 0; grid-column:1/-1; }
@@ -145,7 +147,7 @@
     <button data-f="cve-2026">[ 2026 CVEs ]</button>
   </nav>
   <div class="statusline">STATUS: <b class="ok">OPERATIONAL</b>
-    <span class="sep">//</span> LAST SYNC 2026-07-09 17:41 UTC
+    <span class="sep">//</span> LAST SYNC 2026-07-09 18:16 UTC
     <span class="sep">//</span> <span id="count"></span></div>
   <div class="lede">
     <h1>THREAT INTELLIGENCE, <span>ON AUTOPILOT.</span></h1>
@@ -165,7 +167,8 @@
           <span class="date">2026-07-09</span></div>
         <a class="ttl" href="briefs/interlock_and_rhysida_within_the_ransomware_ecosys.pdf"><h2>Interlock and Rhysida within the Ransomware Ecosystem</h2></a>
         <div class="tags"><button class="tag t-actor" data-tag="hive0163" title="actor">Hive0163</button><button class="tag t-actor" data-tag="rhysida" title="actor">Rhysida</button><button class="tag t-actor" data-tag="vanilla tempest" title="actor">Vanilla Tempest</button><button class="tag t-actor" data-tag="tag-124" title="actor">TAG-124</button><button class="tag t-actor" data-tag="itg23" title="actor">ITG23</button><button class="tag t-malware" data-tag="nodesnake" title="malware">NodeSnake</button><button class="tag t-malware" data-tag="interlockrat" title="malware">InterlockRAT</button><button class="tag t-malware" data-tag="junkfiction" title="malware">JunkFiction</button><button class="tag t-malware" data-tag="supper" title="malware">Supper</button><button class="tag t-malware" data-tag="interlock" title="malware">Interlock</button><button class="tag t-malware" data-tag="rhysida" title="malware">Rhysida</button><button class="tag t-malware" data-tag="broomstick" title="malware">Broomstick</button><button class="tag t-malware" data-tag="endico" title="malware">Endico</button><button class="tag t-malware" data-tag="tomb" title="malware">Tomb</button><button class="tag t-malware" data-tag="icenova" title="malware">IceNova</button><button class="tag t-malware" data-tag="latrodectus" title="malware">Latrodectus</button><button class="tag t-malware" data-tag="gootloader" title="malware">Gootloader</button><button class="tag t-malware" data-tag="socgholish" title="malware">SocGholish</button><button class="tag t-malware" data-tag="mintloader" title="malware">MintLoader</button><button class="tag t-malware" data-tag="modelorat" title="malware">ModeloRAT</button><button class="tag t-malware" data-tag="brave prince - s0252" title="malware">Brave Prince - S0252</button><button class="tag t-malware" data-tag="vidar" title="malware">Vidar</button><button class="tag t-malware" data-tag="dave" title="malware">Dave</button><button class="tag t-malware" data-tag="systembc" title="malware">SystemBC</button><button class="tag t-malware" data-tag="sliver" title="malware">Sliver</button><button class="tag t-malware" data-tag="berserk stealer" title="malware">Berserk Stealer</button><button class="tag t-malware" data-tag="mallard" title="malware">Mallard</button><button class="tag t-malware" data-tag="plus keylogger" title="malware">Plus Keylogger</button><button class="tag t-malware" data-tag="ntlmthief" title="malware">NtlmThief</button><button class="tag t-malware" data-tag="portstarter" title="malware">PortStarter</button><button class="tag t-target" data-tag="united states of america" title="target">United States of America</button><button class="tag t-target" data-tag="aerospace" title="target">Aerospace</button><button class="tag t-target" data-tag="agriculture" title="target">Agriculture</button><button class="tag t-target" data-tag="chemical" title="target">Chemical</button><button class="tag t-target" data-tag="construction" title="target">Construction</button><button class="tag t-target" data-tag="defense" title="target">Defense</button><button class="tag t-target" data-tag="education" title="target">Education</button><button class="tag t-target" data-tag="energy" title="target">Energy</button><button class="tag t-target" data-tag="finance" title="target">Finance</button><button class="tag t-target" data-tag="government" title="target">Government</button><button class="tag t-target" data-tag="healthcare" title="target">Healthcare</button><button class="tag t-target" data-tag="hospitality" title="target">Hospitality</button><button class="tag t-target" data-tag="manufacturing" title="target">Manufacturing</button><button class="tag t-target" data-tag="media" title="target">Media</button><button class="tag t-target" data-tag="ngo" title="target">NGO</button><button class="tag t-target" data-tag="retail" title="target">Retail</button><button class="tag t-target" data-tag="technology" title="target">Technology</button><button class="tag t-target" data-tag="telecommunications" title="target">Telecommunications</button><button class="tag t-target" data-tag="transportation" title="target">Transportation</button><button class="tag t-cve" data-tag="cve-2026-20131" title="cve">CVE-2026-20131</button></div>
-        <a class="dl" href="briefs/interlock_and_rhysida_within_the_ransomware_ecosys.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <div class="actions"><a class="dl" href="briefs/interlock_and_rhysida_within_the_ransomware_ecosys.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <a class="dl det" href="https://github.com/e1nh/salamander-detections/tree/main/2026-07-09/interlock_and_rhysida_within_the_ransomware_ecosys" target="_blank" rel="noopener">&rsaquo; DETECTION PACK <span class="pdf">[YARA · SNORT · STIX]</span></a></div>
       </article>
       <article class="card" data-search="ransomware analysis: go binary and fast encryption critical the gentlemen gentlemen systembc cobalt strike - s0154 anydesk united states of america brazil germany united kingdom of great britain and northern ireland manufacturing technology healthcare finance government cve-2024-55591">
         <span class="cn tl"></span><span class="cn tr"></span><span class="cn bl"></span><span class="cn br"></span>
@@ -173,7 +176,8 @@
           <span class="date">2026-07-09</span></div>
         <a class="ttl" href="briefs/ransomware_analysis_go_binary_and_fast_encryption.pdf"><h2>Ransomware Analysis: Go Binary and Fast Encryption</h2></a>
         <div class="tags"><button class="tag t-actor" data-tag="the gentlemen" title="actor">The Gentlemen</button><button class="tag t-malware" data-tag="gentlemen" title="malware">Gentlemen</button><button class="tag t-malware" data-tag="systembc" title="malware">SystemBC</button><button class="tag t-malware" data-tag="cobalt strike - s0154" title="malware">Cobalt Strike - S0154</button><button class="tag t-malware" data-tag="anydesk" title="malware">AnyDesk</button><button class="tag t-target" data-tag="united states of america" title="target">United States of America</button><button class="tag t-target" data-tag="brazil" title="target">Brazil</button><button class="tag t-target" data-tag="germany" title="target">Germany</button><button class="tag t-target" data-tag="united kingdom of great britain and northern ireland" title="target">United Kingdom of Great Britain and Northern Ireland</button><button class="tag t-target" data-tag="manufacturing" title="target">Manufacturing</button><button class="tag t-target" data-tag="technology" title="target">Technology</button><button class="tag t-target" data-tag="healthcare" title="target">Healthcare</button><button class="tag t-target" data-tag="finance" title="target">Finance</button><button class="tag t-target" data-tag="government" title="target">Government</button><button class="tag t-cve" data-tag="cve-2024-55591" title="cve">CVE-2024-55591</button></div>
-        <a class="dl" href="briefs/ransomware_analysis_go_binary_and_fast_encryption.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <div class="actions"><a class="dl" href="briefs/ransomware_analysis_go_binary_and_fast_encryption.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <a class="dl det" href="https://github.com/e1nh/salamander-detections/tree/main/2026-07-09/ransomware_analysis_go_binary_and_fast_encryption" target="_blank" rel="noopener">&rsaquo; DETECTION PACK <span class="pdf">[YARA · SNORT · STIX]</span></a></div>
       </article>
       <article class="card" data-search="ongoing exploitation of cisco catalyst sd-wan vulnerabilities critical uat-8616 xenshell godzilla behinder sliver adaptixc2 xmrig nimplant kscan gsocket cve-2026-20128">
         <span class="cn tl"></span><span class="cn tr"></span><span class="cn bl"></span><span class="cn br"></span>
@@ -181,7 +185,8 @@
           <span class="date">2026-07-09</span></div>
         <a class="ttl" href="briefs/ongoing_exploitation_of_cisco_catalyst_sd_wan_vuln.pdf"><h2>Ongoing exploitation of Cisco Catalyst SD-WAN vulnerabilities</h2></a>
         <div class="tags"><button class="tag t-actor" data-tag="uat-8616" title="actor">UAT-8616</button><button class="tag t-malware" data-tag="xenshell" title="malware">XenShell</button><button class="tag t-malware" data-tag="godzilla" title="malware">Godzilla</button><button class="tag t-malware" data-tag="behinder" title="malware">Behinder</button><button class="tag t-malware" data-tag="sliver" title="malware">Sliver</button><button class="tag t-malware" data-tag="adaptixc2" title="malware">AdaptixC2</button><button class="tag t-malware" data-tag="xmrig" title="malware">XMRig</button><button class="tag t-malware" data-tag="nimplant" title="malware">Nimplant</button><button class="tag t-malware" data-tag="kscan" title="malware">KScan</button><button class="tag t-malware" data-tag="gsocket" title="malware">gsocket</button><button class="tag t-cve" data-tag="cve-2026-20128" title="cve">CVE-2026-20128</button></div>
-        <a class="dl" href="briefs/ongoing_exploitation_of_cisco_catalyst_sd_wan_vuln.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <div class="actions"><a class="dl" href="briefs/ongoing_exploitation_of_cisco_catalyst_sd_wan_vuln.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <a class="dl det" href="https://github.com/e1nh/salamander-detections/tree/main/2026-07-09/ongoing_exploitation_of_cisco_catalyst_sd_wan_vuln" target="_blank" rel="noopener">&rsaquo; DETECTION PACK <span class="pdf">[YARA · SNORT · STIX]</span></a></div>
       </article>
       <article class="card" data-search="targets education sector with oracle peoplesoft exploit critical unc6240 meshcentral united states of america education cve-2026-35273">
         <span class="cn tl"></span><span class="cn tr"></span><span class="cn bl"></span><span class="cn br"></span>
@@ -189,7 +194,8 @@
           <span class="date">2026-07-09</span></div>
         <a class="ttl" href="briefs/targets_education_sector_with_oracle_peoplesoft_ex.pdf"><h2>Targets Education Sector with Oracle PeopleSoft Exploit</h2></a>
         <div class="tags"><button class="tag t-actor" data-tag="unc6240" title="actor">UNC6240</button><button class="tag t-malware" data-tag="meshcentral" title="malware">MeshCentral</button><button class="tag t-target" data-tag="united states of america" title="target">United States of America</button><button class="tag t-target" data-tag="education" title="target">Education</button><button class="tag t-cve" data-tag="cve-2026-35273" title="cve">CVE-2026-35273</button></div>
-        <a class="dl" href="briefs/targets_education_sector_with_oracle_peoplesoft_ex.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <div class="actions"><a class="dl" href="briefs/targets_education_sector_with_oracle_peoplesoft_ex.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <a class="dl det" href="https://github.com/e1nh/salamander-detections/tree/main/2026-07-09/targets_education_sector_with_oracle_peoplesoft_ex" target="_blank" rel="noopener">&rsaquo; DETECTION PACK <span class="pdf">[YARA · SNORT · STIX]</span></a></div>
       </article>
       <article class="card" data-search="attackers weaponize microsoft teams relays to stay hidden critical dragonforce backdoor.turn dragonforce united states of america cve-2023-52271">
         <span class="cn tl"></span><span class="cn tr"></span><span class="cn bl"></span><span class="cn br"></span>
@@ -197,7 +203,8 @@
           <span class="date">2026-07-09</span></div>
         <a class="ttl" href="briefs/attackers_weaponize_microsoft_teams_relays_to_stay.pdf"><h2>Attackers Weaponize Microsoft Teams Relays to Stay Hidden</h2></a>
         <div class="tags"><button class="tag t-actor" data-tag="dragonforce" title="actor">DragonForce</button><button class="tag t-malware" data-tag="backdoor.turn" title="malware">Backdoor.Turn</button><button class="tag t-malware" data-tag="dragonforce" title="malware">DragonForce</button><button class="tag t-target" data-tag="united states of america" title="target">United States of America</button><button class="tag t-cve" data-tag="cve-2023-52271" title="cve">CVE-2023-52271</button></div>
-        <a class="dl" href="briefs/attackers_weaponize_microsoft_teams_relays_to_stay.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <div class="actions"><a class="dl" href="briefs/attackers_weaponize_microsoft_teams_relays_to_stay.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <a class="dl det" href="https://github.com/e1nh/salamander-detections/tree/main/2026-07-09/attackers_weaponize_microsoft_teams_relays_to_stay" target="_blank" rel="noopener">&rsaquo; DETECTION PACK <span class="pdf">[YARA · SNORT · STIX]</span></a></div>
       </article>
       <article class="card" data-search="from emerging threat to top-tier ransomware-as-a-service: the evolution of inc ransomware critical inc brave prince - s0252 lynx sinobi cobalt strike - s0154 legal manufacturing technology healthcare construction education cve-2025-5777">
         <span class="cn tl"></span><span class="cn tr"></span><span class="cn bl"></span><span class="cn br"></span>
@@ -205,7 +212,8 @@
           <span class="date">2026-07-09</span></div>
         <a class="ttl" href="briefs/from_emerging_threat_to_top_tier_ransomware_as_a_s.pdf"><h2>From emerging threat to top-tier ransomware-as-a-service: The evolution of INC ransomware</h2></a>
         <div class="tags"><button class="tag t-actor" data-tag="inc" title="actor">INC</button><button class="tag t-malware" data-tag="brave prince - s0252" title="malware">Brave Prince - S0252</button><button class="tag t-malware" data-tag="lynx" title="malware">Lynx</button><button class="tag t-malware" data-tag="sinobi" title="malware">Sinobi</button><button class="tag t-malware" data-tag="cobalt strike - s0154" title="malware">Cobalt Strike - S0154</button><button class="tag t-target" data-tag="legal" title="target">Legal</button><button class="tag t-target" data-tag="manufacturing" title="target">Manufacturing</button><button class="tag t-target" data-tag="technology" title="target">Technology</button><button class="tag t-target" data-tag="healthcare" title="target">Healthcare</button><button class="tag t-target" data-tag="construction" title="target">Construction</button><button class="tag t-target" data-tag="education" title="target">Education</button><button class="tag t-cve" data-tag="cve-2025-5777" title="cve">CVE-2025-5777</button></div>
-        <a class="dl" href="briefs/from_emerging_threat_to_top_tier_ransomware_as_a_s.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <div class="actions"><a class="dl" href="briefs/from_emerging_threat_to_top_tier_ransomware_as_a_s.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <a class="dl det" href="https://github.com/e1nh/salamander-detections/tree/main/2026-07-09/from_emerging_threat_to_top_tier_ransomware_as_a_s" target="_blank" rel="noopener">&rsaquo; DETECTION PACK <span class="pdf">[YARA · SNORT · STIX]</span></a></div>
       </article>
       <article class="card" data-search="new backdoor may be linked to ransomware access broker critical woodgnat backdoor.mistic modelorat gatekeeper nexshield mintsloader d3f@ck loader insurance education technology ">
         <span class="cn tl"></span><span class="cn tr"></span><span class="cn bl"></span><span class="cn br"></span>
@@ -213,7 +221,8 @@
           <span class="date">2026-07-09</span></div>
         <a class="ttl" href="briefs/new_backdoor_may_be_linked_to_ransomware_access_br.pdf"><h2>New Backdoor May be Linked to Ransomware Access Broker</h2></a>
         <div class="tags"><button class="tag t-actor" data-tag="woodgnat" title="actor">Woodgnat</button><button class="tag t-malware" data-tag="backdoor.mistic" title="malware">Backdoor.Mistic</button><button class="tag t-malware" data-tag="modelorat" title="malware">ModeloRAT</button><button class="tag t-malware" data-tag="gatekeeper" title="malware">GateKeeper</button><button class="tag t-malware" data-tag="nexshield" title="malware">NexShield</button><button class="tag t-malware" data-tag="mintsloader" title="malware">MintsLoader</button><button class="tag t-malware" data-tag="d3f@ck loader" title="malware">D3F@ck Loader</button><button class="tag t-target" data-tag="insurance" title="target">Insurance</button><button class="tag t-target" data-tag="education" title="target">Education</button><button class="tag t-target" data-tag="technology" title="target">Technology</button></div>
-        <a class="dl" href="briefs/new_backdoor_may_be_linked_to_ransomware_access_br.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <div class="actions"><a class="dl" href="briefs/new_backdoor_may_be_linked_to_ransomware_access_br.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <a class="dl det" href="https://github.com/e1nh/salamander-detections/tree/main/2026-07-09/new_backdoor_may_be_linked_to_ransomware_access_br" target="_blank" rel="noopener">&rsaquo; DETECTION PACK <span class="pdf">[YARA · SNORT · STIX]</span></a></div>
       </article>
       <article class="card" data-search="understanding langflow cve-2026-55255, and why higher cvss vulnerabilities aren&#x27;t always the most exploited critical vshell technology cve-2026-33017">
         <span class="cn tl"></span><span class="cn tr"></span><span class="cn bl"></span><span class="cn br"></span>
@@ -221,7 +230,8 @@
           <span class="date">2026-07-09</span></div>
         <a class="ttl" href="briefs/understanding_langflow_cve_2026_55255_and_why_high.pdf"><h2>Understanding Langflow CVE-2026-55255, and why higher CVSS vulnerabilities aren&#x27;t always the most exploited</h2></a>
         <div class="tags"><button class="tag t-malware" data-tag="vshell" title="malware">VShell</button><button class="tag t-target" data-tag="technology" title="target">Technology</button><button class="tag t-cve" data-tag="cve-2026-33017" title="cve">CVE-2026-33017</button></div>
-        <a class="dl" href="briefs/understanding_langflow_cve_2026_55255_and_why_high.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <div class="actions"><a class="dl" href="briefs/understanding_langflow_cve_2026_55255_and_why_high.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <a class="dl det" href="https://github.com/e1nh/salamander-detections/tree/main/2026-07-09/understanding_langflow_cve_2026_55255_and_why_high" target="_blank" rel="noopener">&rsaquo; DETECTION PACK <span class="pdf">[YARA · SNORT · STIX]</span></a></div>
       </article>
       <article class="card" data-search="rustduck: an in-depth analysis of a two-stage botnet critical rustduck cve-2025-29635">
         <span class="cn tl"></span><span class="cn tr"></span><span class="cn bl"></span><span class="cn br"></span>
@@ -229,7 +239,8 @@
           <span class="date">2026-07-09</span></div>
         <a class="ttl" href="briefs/rustduck_an_in_depth_analysis_of_a_two_stage_botne.pdf"><h2>RustDuck: An In-Depth Analysis of a Two-Stage Botnet</h2></a>
         <div class="tags"><button class="tag t-malware" data-tag="rustduck" title="malware">RustDuck</button><button class="tag t-cve" data-tag="cve-2025-29635" title="cve">CVE-2025-29635</button></div>
-        <a class="dl" href="briefs/rustduck_an_in_depth_analysis_of_a_two_stage_botne.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <div class="actions"><a class="dl" href="briefs/rustduck_an_in_depth_analysis_of_a_two_stage_botne.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <a class="dl det" href="https://github.com/e1nh/salamander-detections/tree/main/2026-07-09/rustduck_an_in_depth_analysis_of_a_two_stage_botne" target="_blank" rel="noopener">&rsaquo; DETECTION PACK <span class="pdf">[YARA · SNORT · STIX]</span></a></div>
       </article>
       <article class="card" data-search="old winrar flaw fuels attacks on ukraine: how unmanaged software keeps the door open critical shadow-earth-066 earth dahu giftedcrook gammasteel ukraine government defense cve-2025-8088">
         <span class="cn tl"></span><span class="cn tr"></span><span class="cn bl"></span><span class="cn br"></span>
@@ -237,7 +248,8 @@
           <span class="date">2026-07-09</span></div>
         <a class="ttl" href="briefs/old_winrar_flaw_fuels_attacks_on_ukraine_how_unman.pdf"><h2>Old WinRAR Flaw Fuels Attacks on Ukraine: How Unmanaged Software Keeps the Door Open</h2></a>
         <div class="tags"><button class="tag t-actor" data-tag="shadow-earth-066" title="actor">SHADOW-EARTH-066</button><button class="tag t-actor" data-tag="earth dahu" title="actor">Earth Dahu</button><button class="tag t-malware" data-tag="giftedcrook" title="malware">GIFTEDCROOK</button><button class="tag t-malware" data-tag="gammasteel" title="malware">GammaSteel</button><button class="tag t-target" data-tag="ukraine" title="target">Ukraine</button><button class="tag t-target" data-tag="government" title="target">Government</button><button class="tag t-target" data-tag="defense" title="target">Defense</button><button class="tag t-cve" data-tag="cve-2025-8088" title="cve">CVE-2025-8088</button></div>
-        <a class="dl" href="briefs/old_winrar_flaw_fuels_attacks_on_ukraine_how_unman.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <div class="actions"><a class="dl" href="briefs/old_winrar_flaw_fuels_attacks_on_ukraine_how_unman.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <a class="dl det" href="https://github.com/e1nh/salamander-detections/tree/main/2026-07-09/old_winrar_flaw_fuels_attacks_on_ukraine_how_unman" target="_blank" rel="noopener">&rsaquo; DETECTION PACK <span class="pdf">[YARA · SNORT · STIX]</span></a></div>
       </article>
       <article class="card" data-search="vidar stealer unmasked: code signing abuse, go loaders and file inflation critical x3d miner vidar xmrig united states of america ">
         <span class="cn tl"></span><span class="cn tr"></span><span class="cn bl"></span><span class="cn br"></span>
@@ -245,7 +257,8 @@
           <span class="date">2026-07-09</span></div>
         <a class="ttl" href="briefs/vidar_stealer_unmasked_code_signing_abuse_go_loade.pdf"><h2>Vidar Stealer Unmasked: Code Signing Abuse, Go Loaders and File Inflation</h2></a>
         <div class="tags"><button class="tag t-actor" data-tag="x3d miner" title="actor">X3D MINER</button><button class="tag t-malware" data-tag="vidar" title="malware">Vidar</button><button class="tag t-malware" data-tag="xmrig" title="malware">XMRig</button><button class="tag t-target" data-tag="united states of america" title="target">United States of America</button></div>
-        <a class="dl" href="briefs/vidar_stealer_unmasked_code_signing_abuse_go_loade.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <div class="actions"><a class="dl" href="briefs/vidar_stealer_unmasked_code_signing_abuse_go_loade.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <a class="dl det" href="https://github.com/e1nh/salamander-detections/tree/main/2026-07-09/vidar_stealer_unmasked_code_signing_abuse_go_loade" target="_blank" rel="noopener">&rsaquo; DETECTION PACK <span class="pdf">[YARA · SNORT · STIX]</span></a></div>
       </article>
       <article class="card" data-search="active exploitation of check point vpn authentication bypass (cve-2026-50751) critical qilin qilin taiwan cve-2026-50751">
         <span class="cn tl"></span><span class="cn tr"></span><span class="cn bl"></span><span class="cn br"></span>
@@ -253,14 +266,15 @@
           <span class="date">2026-07-09</span></div>
         <a class="ttl" href="briefs/active_exploitation_of_check_point_vpn_authenticat.pdf"><h2>Active Exploitation of Check Point VPN Authentication Bypass (CVE-2026-50751)</h2></a>
         <div class="tags"><button class="tag t-actor" data-tag="qilin" title="actor">Qilin</button><button class="tag t-malware" data-tag="qilin" title="malware">Qilin</button><button class="tag t-target" data-tag="taiwan" title="target">Taiwan</button><button class="tag t-cve" data-tag="cve-2026-50751" title="cve">CVE-2026-50751</button></div>
-        <a class="dl" href="briefs/active_exploitation_of_check_point_vpn_authenticat.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <div class="actions"><a class="dl" href="briefs/active_exploitation_of_check_point_vpn_authenticat.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+        <a class="dl det" href="https://github.com/e1nh/salamander-detections/tree/main/2026-07-09/active_exploitation_of_check_point_vpn_authenticat" target="_blank" rel="noopener">&rsaquo; DETECTION PACK <span class="pdf">[YARA · SNORT · STIX]</span></a></div>
       </article>
     <p class="noresults" id="noresults" style="display:none">// NO BRIEFS MATCH QUERY</p>
   </main>
   <div id="pager" class="pager"></div>
 
 </div>
-<footer>&#9679; TLP:GREEN // AUTO-GENERATED 2026-07-09 17:41 UTC // GEO+ASN: IP2LOCATION LITE //
+<footer>&#9679; TLP:GREEN // AUTO-GENERATED 2026-07-09 18:16 UTC // GEO+ASN: IP2LOCATION LITE //
   REPUTATION: ABUSEIPDB // MALWARE ATTRIBUTION: ABUSE.CH // INDICATORS DEFANGED, VERIFY
   BEFORE USE // <a href="https://salacti.com">salacti.com</a></footer>
 <script>
