@@ -1,78 +1,207 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Salamander CTI — salacti.com</title>
-<meta name="description" content="Automated, evidence-anchored threat intelligence briefs. Free, defanged, formatted for rapid SOC triage.">
+<title>SALAMANDER_CTI // salacti.com</title>
+<meta name="description" content="Autonomous, evidence-anchored threat intelligence. Ranked, enriched, defanged, formatted for rapid SOC triage. Free.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#0c0d0f; --panel:#15171b; --line:#23262c; --ink:#e8e9ec;
-           --dim:#9aa0a8; --crimson:#c8102e; --crimson2:#7a0c1f; }
+  :root { --bg:#060a0d; --panel:rgba(14,24,28,.55); --line:#173038;
+    --cy:#5fd3e6; --cy-dim:#3f8f9c; --ink:#e6f2f6; --dim:#a8c2c9;
+    --crit:#ff4d63; --high:#f2a13a; --mod:#e0c34a; --low:#6f8b92; --ok:#35d07f;
+    --mono:'Share Tech Mono',monospace; --head:'Orbitron',sans-serif;
+    --ui:'Rajdhani',sans-serif; }
   * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--ink);
-    font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; line-height:1.6; }
+  body { margin:0; color:var(--ink); font-family:var(--ui); font-weight:500; font-size:16px; line-height:1.55;
+    background:
+      radial-gradient(1200px 620px at 72% -12%, rgba(95,211,230,.07), transparent 60%),
+      linear-gradient(transparent 96%, rgba(95,211,230,.035) 100%) 0 0/100% 34px,
+      var(--bg); }
   a { color:inherit; text-decoration:none; }
-  .wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
-  header { border-bottom:1px solid var(--line); padding:34px 0 26px; }
-  .brand { font-weight:800; letter-spacing:2px; font-size:13px; color:var(--dim); }
-  h1 { margin:10px 0 6px; font-size:34px; letter-spacing:-.5px; }
-  h1 span { color:var(--crimson); }
-  .tag { color:var(--dim); max-width:640px; }
-  .tlp { display:inline-block; margin-top:14px; font-size:12px; font-weight:700;
-    color:#2e9e2e; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-    gap:16px; padding:28px 0 40px; }
-  .card { background:var(--panel); border:1px solid var(--line);
-    border-left:3px solid var(--crimson2); border-radius:10px; padding:16px 18px;
-    transition:border-color .15s, transform .15s; display:block; }
-  .card:hover { border-left-color:var(--crimson); transform:translateY(-2px); }
-  .row { display:flex; justify-content:space-between; align-items:center; }
-  .pill { font-size:11px; font-weight:800; letter-spacing:.5px; padding:3px 9px;
-    border-radius:20px; text-transform:uppercase; }
-  .pill.crit { background:var(--crimson); color:#fff; }
-  .pill.high { background:#e8556b; color:#fff; }
-  .pill.mod  { background:#caa23a; color:#141414; }
-  .pill.low  { background:#3a3f44; color:#e8e9ec; }
-  .date { color:var(--dim); font-size:12px; font-variant-numeric:tabular-nums; }
-  .card h2 { font-size:17px; margin:12px 0 8px; line-height:1.35; }
-  .meta { font-size:13px; color:var(--dim); }
-  .actor { color:var(--ink); font-weight:600; }
-  .cve { color:var(--crimson); font-family:'Fira Code',monospace; font-size:12px; }
-  .fam { font-size:12px; color:var(--dim); margin-top:6px; }
-  .dl { margin-top:14px; color:var(--crimson); font-weight:700; font-size:13px; }
-  footer { border-top:1px solid var(--line); color:var(--dim); font-size:12px;
-    padding:22px 0 40px; }
-  footer a { color:var(--crimson); }
-  .empty { color:var(--dim); padding:40px 0; }
+  .bgart { position:fixed; right:-5%; top:50%; transform:translateY(-50%);
+    height:128vh; opacity:.06; pointer-events:none; z-index:0;
+    -webkit-mask-image:linear-gradient(to left,#000 32%,transparent 90%);
+            mask-image:linear-gradient(to left,#000 32%,transparent 90%); }
+  .wrap { position:relative; z-index:1; max-width:1180px; margin:0 auto; padding:0 26px; }
+
+  /* Masthead */
+  .top-bar { display:flex; justify-content:space-between; align-items:center; padding:30px 0 14px; }
+  .wordmark { display:flex; align-items:center; font-family:var(--head); font-weight:900;
+    font-size:30px; letter-spacing:1px; color:#eaf7fa; font-style:italic; }
+  .wordmark .us { color:var(--cy); }
+  .wordmark .slash { width:20px; height:26px; margin-left:12px; background:var(--cy);
+    transform:skewX(-20deg); box-shadow:0 0 14px var(--cy); }
+  .access { display:flex; align-items:center; gap:12px; }
+  .access .lbl { font-family:var(--mono); font-size:12px; letter-spacing:2px; color:var(--cy); }
+  .ring { width:52px; height:52px; border-radius:50%; border:1px solid var(--cy-dim);
+    display:flex; align-items:center; justify-content:center; position:relative;
+    box-shadow:0 0 18px rgba(95,211,230,.25) inset; }
+  .ring::after { content:""; position:absolute; inset:-5px; border-radius:50%;
+    border:1px solid rgba(95,211,230,.25); border-top-color:var(--cy); animation:spin 6s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  .ring img { width:30px; height:30px; opacity:.85; filter:drop-shadow(0 0 4px var(--cy)); }
+
+  /* Nav */
+  nav { display:flex; flex-wrap:wrap; gap:6px 18px; padding:14px 0; border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line); }
+  nav button { background:none; border:0; cursor:pointer; font-family:var(--ui); font-weight:700;
+    letter-spacing:2px; font-size:14px; color:var(--dim); padding:2px 0; }
+  nav button:hover, nav button.on { color:var(--cy); text-shadow:0 0 10px var(--cy-dim); }
+
+  .statusline { font-family:var(--mono); font-size:12.5px; letter-spacing:1px; color:var(--dim);
+    padding:14px 0 4px; }
+  .statusline b.ok { color:var(--ok); }
+  .statusline .sep { color:var(--cy-dim); margin:0 10px; }
+
+  .lede { padding:16px 0 2px; }
+  .lede h1 { font-family:var(--head); font-weight:700; font-size:26px; letter-spacing:.5px;
+    margin:0 0 8px; color:#eaf7fa; }
+  .lede h1 span { color:var(--cy); }
+  .lede p { color:var(--dim); max-width:640px; margin:0; }
+
+  /* Search */
+  .tools { display:flex; align-items:center; gap:14px; padding:22px 0 4px; }
+  .search-wrap { flex:1; position:relative; }
+  .search-wrap::before { content:">"; position:absolute; left:14px; top:50%; transform:translateY(-50%);
+    color:var(--cy); font-family:var(--mono); }
+  #q { width:100%; background:rgba(16,30,36,.92); border:1px solid var(--cy-dim); color:#eef9fb;
+    font-family:var(--mono); padding:12px 14px 12px 30px; font-size:14px; outline:none; letter-spacing:.5px; }
+  #q::placeholder { color:#93b3bb; }
+  #q:focus { border-color:var(--cy); box-shadow:0 0 0 1px var(--cy), 0 0 16px rgba(95,211,230,.2); }
+  #count { font-family:var(--mono); color:var(--cy); font-size:13px; white-space:nowrap; }
+
+  /* Grid + HUD panels */
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+    gap:18px; grid-auto-rows:1fr; padding:18px 0 50px; }
+  .card { position:relative; background:var(--panel); border:1px solid var(--line);
+    padding:18px 20px; display:flex; flex-direction:column; height:100%;
+    transition:border-color .15s, box-shadow .15s, transform .12s; backdrop-filter:blur(2px); }
+  .card:hover { border-color:var(--cy-dim); box-shadow:0 0 24px rgba(95,211,230,.12);
+    transform:translateY(-2px); }
+  .cn { position:absolute; width:14px; height:14px; border:2px solid var(--cy); }
+  .cn.tl { top:-1px; left:-1px; border-right:0; border-bottom:0; }
+  .cn.tr { top:-1px; right:-1px; border-left:0; border-bottom:0; }
+  .cn.bl { bottom:-1px; left:-1px; border-right:0; border-top:0; }
+  .cn.br { bottom:-1px; right:-1px; border-left:0; border-top:0; }
+  .top { display:flex; justify-content:space-between; align-items:baseline; }
+  .risk { font-family:var(--mono); font-size:11px; font-weight:400; letter-spacing:2px; }
+  .risk::before { content:"\25A0"; margin-right:6px; }
+  .risk.crit { color:var(--crit); text-shadow:0 0 10px rgba(255,77,99,.5); }
+  .risk.high { color:var(--high); }
+  .risk.mod  { color:var(--mod); }
+  .risk.low  { color:var(--low); }
+  .date { color:var(--dim); font-family:var(--mono); font-size:12px; }
+  .ttl h2 { font-family:var(--ui); font-weight:700; font-size:19px; line-height:1.3;
+    margin:12px 0 12px; color:var(--ink); letter-spacing:.3px; }
+  .card:hover .ttl h2 { color:#fff; }
+  .tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
+  .tag { font-family:var(--mono); font-size:11px; color:#c3d6db; background:rgba(95,211,230,.07);
+    border:1px solid #2b5560; padding:2px 8px; cursor:pointer; letter-spacing:.5px; }
+  .tag:hover { border-color:var(--cy); color:var(--cy); box-shadow:0 0 10px rgba(95,211,230,.15); }
+  .t-actor { color:#efce85; background:rgba(230,198,128,.12); border-color:rgba(230,198,128,.45); }
+  .t-cve { color:#ff8b98; background:rgba(255,77,99,.15); border-color:rgba(255,77,99,.5); }
+  .notag { color:var(--dim); font-family:var(--mono); font-size:11px; }
+  .dl { margin-top:auto; padding-top:14px; color:var(--cy); font-family:var(--mono);
+    font-size:12.5px; letter-spacing:1px; }
+  .dl .pdf { color:var(--dim); }
+  .card:hover .dl { text-shadow:0 0 10px var(--cy-dim); }
+  .noresults { color:var(--dim); font-family:var(--mono); padding:34px 0; grid-column:1/-1; }
+  /* Dormant ad slots: invisible until populated (drop HTML into ads/). */
+  .ad { position:relative; border:1px dashed var(--cy-dim); background:rgba(14,24,28,.35);
+    padding:18px; margin:14px 0; text-align:center; min-height:60px;
+    display:flex; align-items:center; justify-content:center; }
+  .ad:empty { display:none; }
+  .ad::before { content:"SPONSORED"; position:absolute; top:6px; left:12px;
+    font-family:var(--mono); font-size:9px; letter-spacing:2px; color:var(--dim); }
+  .ad.infeed { grid-column:1/-1; }
+
+  footer { position:relative; z-index:1; border-top:1px solid var(--line); color:var(--dim);
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.5px; padding:20px 26px 46px;
+    max-width:1180px; margin:0 auto; }
+  footer a { color:var(--cy); }
+  @media (max-width:560px){ .wordmark{font-size:22px} .access .lbl{display:none} }
 </style></head>
-<body><div class="wrap">
-  <header>
-    <div class="brand">SALAMANDER CTI</div>
-    <h1>Threat intelligence, <span>on autopilot.</span></h1>
-    <p class="tag">Evidence-anchored briefs generated twice daily from open-source
-      telemetry: ranked by urgency, enriched with reputation and hosting context,
-      defanged, and formatted for rapid SOC triage. Free.</p>
-    <div class="tlp">&#9679; TLP:GREEN</div>
-  </header>
-  <main class="grid">
-      <a class="card" href="briefs/interlock_and_rhysida_within_the_ransomware_ecosys.pdf">
-        <div class="row"><span class="pill crit">Critical</span>
+<body>
+<img class="bgart" src="bg.png" alt="">
+<div class="wrap">
+  <div class="top-bar">
+    <div class="wordmark">SALAMANDER<span class="us">_CTI</span><span class="slash"></span></div>
+    <div class="access"><span class="lbl">LIVE&nbsp;FEED</span>
+      <div class="ring"><img src="favicon.png" alt=""></div></div>
+  </div>
+  <nav id="nav">
+    <button class="on" data-f="">[ ALL ]</button>
+    <button data-f="critical">[ CRITICAL ]</button>
+    <button data-f="ransom">[ RANSOMWARE ]</button>
+    <button data-f="apt">[ APT ]</button>
+    <button data-f="cve-2026">[ 2026 CVEs ]</button>
+  </nav>
+  <div class="statusline">STATUS: <b class="ok">OPERATIONAL</b>
+    <span class="sep">//</span> LAST SYNC 2026-07-09 17:02 UTC
+    <span class="sep">//</span> <span id="count"></span></div>
+  <div class="lede">
+    <h1>THREAT INTELLIGENCE, <span>ON AUTOPILOT.</span></h1>
+    <p>Evidence-anchored briefs generated twice daily from open-source telemetry:
+      ranked by urgency, enriched with reputation and hosting context, defanged,
+      and formatted for rapid SOC triage. Free.</p>
+  </div>
+
+  <div class="tools">
+    <div class="search-wrap"><input id="q" type="search"
+      placeholder="SEARCH ACTOR / MALWARE / CVE / TARGET" autocomplete="off"></div>
+  </div>
+  <main class="grid" id="grid">
+      <article class="card" data-search="interlock and rhysida within the ransomware ecosystem critical hive0163 rhysida vanilla tempest tag-124 itg23 nodesnake interlockrat junkfiction supper interlock rhysida broomstick endico tomb icenova latrodectus gootloader socgholish mintloader modelorat brave prince - s0252 vidar dave systembc sliver berserk stealer mallard plus keylogger ntlmthief portstarter united states of america aerospace agriculture chemical construction defense education energy finance government healthcare hospitality manufacturing media ngo retail technology telecommunications transportation cve-2026-20131">
+        <span class="cn tl"></span><span class="cn tr"></span><span class="cn bl"></span><span class="cn br"></span>
+        <div class="top"><span class="risk crit">Critical</span>
           <span class="date">2026-07-09</span></div>
-        <h2>Interlock and Rhysida within the Ransomware Ecosystem</h2>
-        <div class="meta"><span class="actor">Hive0163, Rhysida, Vanilla Tempest, TAG-124, ITG23</span> <span class="cve">CVE-2026-20131</span></div>
-        <div class="fam">malware: DonutLoader, INTERLOCK, Latrodectus, Vidar</div>
-        <div class="dl">Download brief (PDF) &rsaquo;</div>
-      </a>
-      <a class="card" href="briefs/ongoing_exploitation_of_cisco_catalyst_sd_wan_vuln.pdf">
-        <div class="row"><span class="pill crit">Critical</span>
+        <a class="ttl" href="briefs/interlock_and_rhysida_within_the_ransomware_ecosys.pdf"><h2>Interlock and Rhysida within the Ransomware Ecosystem</h2></a>
+        <div class="tags"><button class="tag t-actor" data-tag="hive0163" title="actor">Hive0163</button><button class="tag t-actor" data-tag="rhysida" title="actor">Rhysida</button><button class="tag t-actor" data-tag="vanilla tempest" title="actor">Vanilla Tempest</button><button class="tag t-actor" data-tag="tag-124" title="actor">TAG-124</button><button class="tag t-actor" data-tag="itg23" title="actor">ITG23</button><button class="tag t-malware" data-tag="nodesnake" title="malware">NodeSnake</button><button class="tag t-malware" data-tag="interlockrat" title="malware">InterlockRAT</button><button class="tag t-malware" data-tag="junkfiction" title="malware">JunkFiction</button><button class="tag t-malware" data-tag="supper" title="malware">Supper</button><button class="tag t-malware" data-tag="interlock" title="malware">Interlock</button><button class="tag t-malware" data-tag="rhysida" title="malware">Rhysida</button><button class="tag t-malware" data-tag="broomstick" title="malware">Broomstick</button><button class="tag t-malware" data-tag="endico" title="malware">Endico</button><button class="tag t-malware" data-tag="tomb" title="malware">Tomb</button><button class="tag t-malware" data-tag="icenova" title="malware">IceNova</button><button class="tag t-malware" data-tag="latrodectus" title="malware">Latrodectus</button><button class="tag t-malware" data-tag="gootloader" title="malware">Gootloader</button><button class="tag t-malware" data-tag="socgholish" title="malware">SocGholish</button><button class="tag t-malware" data-tag="mintloader" title="malware">MintLoader</button><button class="tag t-malware" data-tag="modelorat" title="malware">ModeloRAT</button><button class="tag t-malware" data-tag="brave prince - s0252" title="malware">Brave Prince - S0252</button><button class="tag t-malware" data-tag="vidar" title="malware">Vidar</button><button class="tag t-malware" data-tag="dave" title="malware">Dave</button><button class="tag t-malware" data-tag="systembc" title="malware">SystemBC</button><button class="tag t-malware" data-tag="sliver" title="malware">Sliver</button><button class="tag t-malware" data-tag="berserk stealer" title="malware">Berserk Stealer</button><button class="tag t-malware" data-tag="mallard" title="malware">Mallard</button><button class="tag t-malware" data-tag="plus keylogger" title="malware">Plus Keylogger</button><button class="tag t-malware" data-tag="ntlmthief" title="malware">NtlmThief</button><button class="tag t-malware" data-tag="portstarter" title="malware">PortStarter</button><button class="tag t-target" data-tag="united states of america" title="target">United States of America</button><button class="tag t-target" data-tag="aerospace" title="target">Aerospace</button><button class="tag t-target" data-tag="agriculture" title="target">Agriculture</button><button class="tag t-target" data-tag="chemical" title="target">Chemical</button><button class="tag t-target" data-tag="construction" title="target">Construction</button><button class="tag t-target" data-tag="defense" title="target">Defense</button><button class="tag t-target" data-tag="education" title="target">Education</button><button class="tag t-target" data-tag="energy" title="target">Energy</button><button class="tag t-target" data-tag="finance" title="target">Finance</button><button class="tag t-target" data-tag="government" title="target">Government</button><button class="tag t-target" data-tag="healthcare" title="target">Healthcare</button><button class="tag t-target" data-tag="hospitality" title="target">Hospitality</button><button class="tag t-target" data-tag="manufacturing" title="target">Manufacturing</button><button class="tag t-target" data-tag="media" title="target">Media</button><button class="tag t-target" data-tag="ngo" title="target">NGO</button><button class="tag t-target" data-tag="retail" title="target">Retail</button><button class="tag t-target" data-tag="technology" title="target">Technology</button><button class="tag t-target" data-tag="telecommunications" title="target">Telecommunications</button><button class="tag t-target" data-tag="transportation" title="target">Transportation</button><button class="tag t-cve" data-tag="cve-2026-20131" title="cve">CVE-2026-20131</button></div>
+        <a class="dl" href="briefs/interlock_and_rhysida_within_the_ransomware_ecosys.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+      </article>
+      <article class="card" data-search="ongoing exploitation of cisco catalyst sd-wan vulnerabilities critical uat-8616 xenshell godzilla behinder sliver adaptixc2 xmrig nimplant kscan gsocket cve-2026-20128">
+        <span class="cn tl"></span><span class="cn tr"></span><span class="cn bl"></span><span class="cn br"></span>
+        <div class="top"><span class="risk crit">Critical</span>
           <span class="date">2026-07-09</span></div>
-        <h2>Ongoing exploitation of Cisco Catalyst SD-WAN vulnerabilities</h2>
-        <div class="meta"><span class="actor">UAT-8616</span> <span class="cve">CVE-2026-20128</span></div>
-        <div class="fam">malware: CoinMiner</div>
-        <div class="dl">Download brief (PDF) &rsaquo;</div>
-      </a>
+        <a class="ttl" href="briefs/ongoing_exploitation_of_cisco_catalyst_sd_wan_vuln.pdf"><h2>Ongoing exploitation of Cisco Catalyst SD-WAN vulnerabilities</h2></a>
+        <div class="tags"><button class="tag t-actor" data-tag="uat-8616" title="actor">UAT-8616</button><button class="tag t-malware" data-tag="xenshell" title="malware">XenShell</button><button class="tag t-malware" data-tag="godzilla" title="malware">Godzilla</button><button class="tag t-malware" data-tag="behinder" title="malware">Behinder</button><button class="tag t-malware" data-tag="sliver" title="malware">Sliver</button><button class="tag t-malware" data-tag="adaptixc2" title="malware">AdaptixC2</button><button class="tag t-malware" data-tag="xmrig" title="malware">XMRig</button><button class="tag t-malware" data-tag="nimplant" title="malware">Nimplant</button><button class="tag t-malware" data-tag="kscan" title="malware">KScan</button><button class="tag t-malware" data-tag="gsocket" title="malware">gsocket</button><button class="tag t-cve" data-tag="cve-2026-20128" title="cve">CVE-2026-20128</button></div>
+        <a class="dl" href="briefs/ongoing_exploitation_of_cisco_catalyst_sd_wan_vuln.pdf">&rsaquo; ACCESS BRIEF <span class="pdf">[PDF]</span></a>
+      </article>
+    <p class="noresults" id="noresults" style="display:none">// NO BRIEFS MATCH QUERY</p>
   </main>
-  <footer>
-    Auto-generated 2026-07-09 16:15 UTC. Geo/ASN by IP2Location LITE · reputation by AbuseIPDB ·
-    malware attribution by abuse.ch. Indicators are defanged; verify before use.
-    <a href="https://salacti.com">salacti.com</a>
-  </footer>
-</div></body></html>
+
+</div>
+<footer>&#9679; TLP:GREEN // AUTO-GENERATED 2026-07-09 17:02 UTC // GEO+ASN: IP2LOCATION LITE //
+  REPUTATION: ABUSEIPDB // MALWARE ATTRIBUTION: ABUSE.CH // INDICATORS DEFANGED, VERIFY
+  BEFORE USE // <a href="https://salacti.com">salacti.com</a></footer>
+<script>
+  var q = document.getElementById('q');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var count = document.getElementById('count');
+  var none = document.getElementById('noresults');
+  var navb = Array.prototype.slice.call(document.querySelectorAll('#nav button'));
+  function apply() {
+    var v = q.value.trim().toLowerCase(); var shown = 0;
+    cards.forEach(function(c) {
+      var hit = !v || c.getAttribute('data-search').indexOf(v) !== -1;
+      c.style.display = hit ? '' : 'none'; if (hit) shown++;
+    });
+    count.textContent = shown + (shown === 1 ? ' BRIEF' : ' BRIEFS');
+    none.style.display = shown ? 'none' : '';
+  }
+  q.addEventListener('input', function(){ navb.forEach(function(b){b.classList.remove('on');}); apply(); });
+  navb.forEach(function(b){ b.addEventListener('click', function(){
+    navb.forEach(function(x){x.classList.remove('on');}); b.classList.add('on');
+    q.value = b.getAttribute('data-f'); apply();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }); });
+  document.querySelectorAll('.tag').forEach(function(t){ t.addEventListener('click', function(e){
+    e.preventDefault(); navb.forEach(function(x){x.classList.remove('on');});
+    q.value = t.getAttribute('data-tag'); apply();
+    window.scrollTo({top:0,behavior:'smooth'}); q.focus();
+  }); });
+  apply();
+</script>
+</body></html>
