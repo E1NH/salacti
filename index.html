@@ -147,6 +147,14 @@
       <button class="on" data-f="">ALL</button><button data-f="weekly">WEEKLY</button><button data-f="critical">CRITICAL</button><button data-f="apt">APT</button><button data-f="cve-2026">2026 CVEs</button>
     </div>
     <main class="grid" id="grid">
+      <article class="ic wk" data-search="weekly strategic digest week 29 technology the gentlemen">
+        <span class="cn tl"></span><span class="cn br"></span>
+        <div class="ln1"><span class="sev-s">&#10022; STRATEGIC</span><span class="dt">WEEK 29</span></div>
+        <a class="ttl" data-nav="weekly"><h3>Week 29 Threat Digest</h3></a>
+        <div class="choke"><span class="dia">&#9672;</span> TOP CHOKEPOINT&nbsp;&nbsp;<b>T1547.001</b> &middot; 107 campaigns</div>
+        <div class="tags"><span class="chip" style="background:var(--cy);color:#04181c;border:0;font-weight:600">WEEKLY</span><span class="chip" data-tag="technology">Technology</span><span class="chip actor" data-tag="the gentlemen">The Gentlemen</span></div>
+        <div class="acts"><a href="briefs/weekly-week29-2026-07-19.pdf">READ DIGEST &rsaquo;</a></div>
+      </article>
       <article class="ic" data-search="customer crm data accessed in supply chain incident critical   t1199">
         <span class="cn tl"></span><span class="cn br"></span>
         <div class="ln1"><span class="sev-c">&#9670; CRITICAL</span><span class="dt">2026-07-19</span></div>
@@ -1036,16 +1044,17 @@
 
 <main data-view="weekly" hidden><section class="blk" style="border:0"><div class="wrap">
   <div class="eyebrow">// WEEKLY DIGEST &middot; STRATEGIC</div>
-  <h1 class="big">Week 28 Threat Digest</h1>
-  <p class="lede" style="font-family:var(--mono);font-size:13px">2026-07-12 &middot; 42 UNIQUE CAMPAIGNS &middot; 42 CRITICAL/HIGH &middot; TLP:GREEN</p>
+  <h1 class="big">Week 29 Threat Digest</h1>
+  <p class="lede" style="font-family:var(--mono);font-size:13px">2026-07-19 &middot; 107 UNIQUE CAMPAIGNS &middot; 106 CRITICAL/HIGH &middot; TLP:GREEN</p>
   <h2 class="sec" style="font-size:20px;margin-top:30px">Defensive priority // recurring chokepoints</h2>
-  <table class="tbl" style="margin-top:12px"><thead><tr><th>TECHNIQUE</th><th>CONTROL POINT</th><th style="text-align:right">CAMPAIGNS</th></tr></thead><tbody><tr><td class="code">T1112</td><td>Modify Registry</td><td class="n">10</td></tr><tr><td class="code">T1547.001</td><td>Registry Run Keys / Startup Folder</td><td class="n">9</td></tr><tr><td class="code">T1078</td><td>Valid Accounts</td><td class="n">4</td></tr><tr><td class="code">T1566</td><td>Phishing</td><td class="n">4</td></tr><tr><td class="code">T1098</td><td>Account Manipulation</td><td class="n">3</td></tr><tr><td class="code">T1505.003</td><td>Web Shell</td><td class="n">3</td></tr></tbody></table>
+  <table class="tbl" style="margin-top:12px"><thead><tr><th>TECHNIQUE</th><th>CONTROL POINT</th><th style="text-align:right">CAMPAIGNS</th></tr></thead><tbody><tr><td class="code">T1547.001</td><td>Registry Run Keys / Startup Folder</td><td class="n">19</td></tr><tr><td class="code">T1112</td><td>Modify Registry</td><td class="n">18</td></tr><tr><td class="code">T1078</td><td>Valid Accounts</td><td class="n">9</td></tr><tr><td class="code">T1566</td><td>Phishing</td><td class="n">9</td></tr><tr><td class="code">T1190</td><td>Exploit Public-Facing Application</td><td class="n">5</td></tr><tr><td class="code">T1195.002</td><td>Compromise Software Supply Chain</td><td class="n">5</td></tr></tbody></table>
+<h2 class="sec" style="font-size:20px;margin-top:32px">What we observed this week, by sector</h2><p style="color:var(--dim);font-size:13px;margin:6px 0 0">Most common chokepoint per sector this week; the count is out of that sector's campaigns. A description of what we saw, not a coverage guarantee.</p><table class="tbl" style="margin-top:12px"><thead><tr><th>SECTOR</th><th>TECHNIQUE</th><th>CONTROL POINT</th><th style="text-align:right">SEEN</th></tr></thead><tbody><tr><td>Technology</td><td class="code">T1547.001</td><td>Registry Run Keys / Startup Folder</td><td class="n">4/25</td></tr><tr><td>Government</td><td class="code">T1547.001</td><td>Registry Run Keys / Startup Folder</td><td class="n">10/25</td></tr><tr><td>Finance</td><td class="code">T1547.001</td><td>Registry Run Keys / Startup Folder</td><td class="n">5/17</td></tr><tr><td>Education</td><td class="code">T1566</td><td>Phishing</td><td class="n">3/12</td></tr><tr><td>Healthcare</td><td class="code">T1547.001</td><td>Registry Run Keys / Startup Folder</td><td class="n">4/11</td></tr><tr><td>Defense</td><td class="code">T1112</td><td>Modify Registry</td><td class="n">4/9</td></tr></tbody></table>
   <div class="grid3" style="margin-top:32px">
-    <div class="panel"><div class="eyebrow" style="margin-bottom:12px">SECTORS</div><table class="tbl"><tbody><tr><td class="">Government</td><td class="n">16</td></tr><tr><td class="">Technology</td><td class="n">10</td></tr><tr><td class="">Finance</td><td class="n">10</td></tr><tr><td class="">Education</td><td class="n">8</td></tr><tr><td class="">Healthcare</td><td class="n">7</td></tr><tr><td class="">Defense</td><td class="n">7</td></tr></tbody></table></div>
-    <div class="panel"><div class="eyebrow" style="margin-bottom:12px">ACTORS</div><table class="tbl"><tbody><tr><td class="">The Gentlemen</td><td class="n">4</td></tr><tr><td class="">DragonForce</td><td class="n">2</td></tr><tr><td class="">Gamaredon</td><td class="n">2</td></tr><tr><td class="">Qilin</td><td class="n">1</td></tr><tr><td class="">INC</td><td class="n">1</td></tr><tr><td class="">Hive0163</td><td class="n">1</td></tr></tbody></table></div>
+    <div class="panel"><div class="eyebrow" style="margin-bottom:12px">SECTORS</div><table class="tbl"><tbody><tr><td class="">Technology</td><td class="n">25</td></tr><tr><td class="">Government</td><td class="n">25</td></tr><tr><td class="">Finance</td><td class="n">17</td></tr><tr><td class="">Education</td><td class="n">12</td></tr><tr><td class="">Healthcare</td><td class="n">11</td></tr><tr><td class="">Defense</td><td class="n">9</td></tr></tbody></table></div>
+    <div class="panel"><div class="eyebrow" style="margin-bottom:12px">ACTORS</div><table class="tbl"><tbody><tr><td class="">The Gentlemen</td><td class="n">5</td></tr><tr><td class="">APT37</td><td class="n">3</td></tr><tr><td class="">Gamaredon</td><td class="n">3</td></tr><tr><td class="">DragonForce</td><td class="n">2</td></tr><tr><td class="">SilverFox</td><td class="n">2</td></tr><tr><td class="">GOLD PRELUDE</td><td class="n">2</td></tr></tbody></table></div>
     <div class="panel"><div class="eyebrow" style="margin-bottom:12px">CVEs IN PLAY</div><table class="tbl"><tbody><tr><td class="code">CVE-2025-8088</td><td class="n">4</td></tr><tr><td class="code">CVE-2025-5777</td><td class="n">2</td></tr><tr><td class="code">CVE-2024-55591</td><td class="n">2</td></tr><tr><td class="code">CVE-2026-50751</td><td class="n">1</td></tr><tr><td class="code">CVE-2026-50752</td><td class="n">1</td></tr><tr><td class="code">CVE-2023-52271</td><td class="n">1</td></tr></tbody></table></div>
   </div>
-  <div style="margin-top:30px"><a class="btn primary" href="briefs/weekly-week28-2026-07-12.pdf">Download PDF &rsaquo;</a></div>
+  <div style="margin-top:30px"><a class="btn primary" href="briefs/weekly-week29-2026-07-19.pdf">Download PDF &rsaquo;</a></div>
 </div></section></main>
 
 <main data-view="method" hidden><section class="blk" style="border:0"><div class="wrap">
@@ -1092,7 +1101,7 @@ baccarat[.]com[.]au</code></div>
   <div class="panel" style="margin-top:14px"><div class="eyebrow" style="margin-bottom:8px">TERMS</div><p style="color:var(--dim);font-size:14.5px;line-height:1.55;margin:0">Provided free and on an "as-is" basis, without warranty. Aggregated open-source intelligence does not guarantee protection or completeness; verify indicators before use. The Flame Cell is a clearly-labelled experimental projection, not a prediction.</p></div>
 </div></section></main>
 
-<footer><div class="wrap">&#9679; TLP:GREEN // AUTO-GENERATED 2026-07-19 12:59 UTC // GEO+ASN: IP2LOCATION LITE // REPUTATION: ABUSEIPDB // ATTRIBUTION: ABUSE.CH<br>
+<footer><div class="wrap">&#9679; TLP:GREEN // AUTO-GENERATED 2026-07-19 15:05 UTC // GEO+ASN: IP2LOCATION LITE // REPUTATION: ABUSEIPDB // ATTRIBUTION: ABUSE.CH<br>
 INDICATORS DEFANGED, VERIFY BEFORE USE // <a data-nav="about">ABOUT / LEGAL</a> // <a href="mailto:norbert@salacti.com">norbert@salacti.com</a> // NO COOKIES · NO PERSONAL DATA // <a href="https://salacti.com">salacti.com</a></div></footer>
 
 <script>
